@@ -1,4 +1,4 @@
-// 天工序科技 - 公司介绍页面脚本
+// 天工智序软件科技 - 公司介绍页面脚本
 
 document.addEventListener('DOMContentLoaded', function() {
     // 导航栏滚动效果

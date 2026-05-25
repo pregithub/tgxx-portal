@@ -1,4 +1,4 @@
-/* 天工序科技 - 公司介绍页面样式 */
+/* 天工智序软件科技 - 公司介绍页面样式 */
 
 * {
     margin: 0;
@@ -353,6 +353,12 @@ body {
 .vision-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+}
+
+.vision-grid-2 {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
     gap: 2rem;
 }
 
@@ -828,6 +834,7 @@ body {
     }
 
     .vision-grid,
+    .vision-grid-2,
     .advantage-grid,
     .team-grid {
         grid-template-columns: 1fr;
