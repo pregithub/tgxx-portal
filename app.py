@@ -3,8 +3,8 @@ H5 Customer Portal - Simplified Version
 Provides customer-facing H5 pages for company intro, recruitment, and agent flow monitoring
 """
 
-import json
-from flask import Flask, request, jsonify, render_template, redirect, url_for, session, g
+import os
+from flask import Flask, request, jsonify, render_template, redirect, url_for, session, g, send_from_directory
 from flask_sock import Sock
 
 
@@ -15,6 +15,9 @@ app = Flask(__name__,
             static_url_path='/front')
 app.secret_key = "h5-secret-key-change-in-production"
 sock = Sock(app)
+
+# Get the directory where app.py is located
+APP_DIR = os.path.dirname(os.path.abspath(__file__))
 
 
 # =============================================================================
@@ -51,8 +54,14 @@ def ws_monitor(ws):
 
 @app.route("/")
 def index():
-    """Root redirect to H5 portal"""
-    return redirect("/h5/")
+    """Root redirect to index.html"""
+    return redirect("/index.html")
+
+
+@app.route("/index.html")
+def index_page():
+    """Serve index.html"""
+    return send_from_directory(APP_DIR, 'index.html')
 
 
 @app.route("/h5/")
