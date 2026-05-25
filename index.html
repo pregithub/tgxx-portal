@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>天工智序软件科技有限公司</title>
+  <meta name="description" content="天工智序软件科技有限公司 – 全球领先的 AI 智能解决方案提供商" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --primary-hue: 210;
+      --bg-gradient: linear-gradient(135deg, hsl(var(--primary-hue), 30%, 12%), hsl(var(--primary-hue), 30%, 8%));
+      --glass-bg: rgba(255, 255, 255, 0.07);
+      --glass-border: rgba(255, 255, 255, 0.12);
+      --text-primary: #e0e4eb;
+      --text-secondary: #a0b1c2;
+      --accent: hsl(var(--primary-hue), 70%, 55%);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg-gradient);
+      color: var(--text-primary);
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      padding: 2rem 0
+    }
+
+    .container {
+      width: min(1200px, 90%);
+      backdrop-filter: blur(12px);
+      background: var(--glass-bg);
+      border: 1px solid var(--glass-border);
+      border-radius: 1rem;
+      padding: 2rem 3rem;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4)
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      color: var(--accent);
+      margin-bottom: 0.6rem
+    }
+
+    h2 {
+      font-size: 1.8rem;
+      color: var(--accent);
+      margin-top: 1.5rem;
+      margin-bottom: 0.6rem;
+      border-left: 4px solid var(--accent);
+      padding-left: 0.6rem
+    }
+
+    p,
+    li {
+      color: var(--text-secondary);
+      margin-bottom: 1rem
+    }
+
+    .section {
+      margin-bottom: 2.5rem
+    }
+
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.5rem
+    }
+
+    .team-member {
+      background: var(--glass-bg);
+      border: 1px solid var(--glass-border);
+      border-radius: 0.8rem;
+      padding: 1rem;
+      text-align: center;
+      transition: transform .3s, box-shadow .3s
+    }
+
+    .team-member:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.5)
+    }
+
+    .team-member h3 {
+      margin: 0.4rem 0 0.2rem;
+      color: var(--text-primary);
+      font-size: 1.1rem
+    }
+
+    .team-member span {
+      font-size: 0.9rem;
+      color: var(--text-secondary)
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+      transition: opacity .2s
+    }
+
+    a:hover {
+      opacity: 0.8
+    }
+
+    footer {
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+      margin-top: 2rem;
+      border-top: 1px solid var(--glass-border);
+      padding-top: 1rem;
+      text-align: center
+    }
+
+    @media (prefers-color-scheme:light) {
+      :root {
+        --bg-gradient: linear-gradient(135deg, hsl(var(--primary-hue), 30%, 95%), hsl(var(--primary-hue), 30%, 90%));
+        --glass-bg: rgba(255, 255, 255, 0.85);
+        --glass-border: rgba(0, 0, 0, 0.08);
+        --text-primary: #212529;
+        --text-secondary: #495057;
+        --accent: hsl(var(--primary-hue), 70%, 45%)
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <header class="section">
+      <h1>天工智序软件科技有限公司</h1>
+    </header>
+
+    <section class="section">
+      <h2>公司概况</h2>
+      <p>天工智序 全球领先的 AI 智能解决方案提供商，公司融合 硅谷的创新基因 与 欧洲的严谨工程基因，打造行业领先的 Mult- Agent 智能协同系统，助力企业实现降本增效、业务闭环。</p>
+      <p>我们致力于通过 AI Agent、自动化工作流与行业知识系统，重构传统行业的运营方式与商业效率，帮助企业完成 AI 原生化升级。</p>
+    </section>
+
+    <section class="section">
+      <h2>愿景与使命</h2>
+      <p><strong>愿景：</strong>我们融合全球创新视野与严谨工程能力，致力于成为推动传统行业智能化转型的全球领先 AI 解决方案提供商。</p>
+      <p><strong>使命：</strong>以 AI Agent、自动化工作流与行业知识系统，帮助企业降低运营成本、提升协同效率，推动传统行业完成 AI 原生化升级。</p>
+    </section>
+
+    <section class="section">
+      <h2>核心产品 – 天工 Claw</h2>
+      <p>天工 Claw 是面向文旅行业的企业级智能运营中台，具备四大核心 Agent：</p>
+      <ol>
+        <li>获客驱动 Agent – 智能获客与转化，提升销售效率。</li>
+        <li>内容驱动 Agent – 自动化内容生成，赋能品牌传播。</li>
+        <li>计调操作 Agent – 自动化任务执行，降低人工成本。</li>
+        <li>数据分析 Agent – 实时数据洞察，助力决策。</li>
+      </ol>
+      <blockquote>双业务闭环：获客 + 内容 双驱动，操作端到端智能化，实现业务闭环。</blockquote>
+    </section>
+
+    <section class="section">
+      <h2>增值业务</h2>
+      <p>目前主营业务-为传统旅行社提供入境旅游线上启动服务，帮助企业快速搭建面向海外游客的基础账号体系，包括 Google、海外社媒、WhatsApp / 邮箱等关键入口，并统一英文资料、账号信息和展示规范。</p>
+      <p>同时，我们通过半日 AI 实战培训，帮助团队掌握英文内容生成、翻译润色、社媒文案、邮件回复和基础视觉制作等实用能力，让旅行社具备自主搭建、自主管理、持续输出英文内容的能力，为入境旅游业务获客和后续运营打好基础。</p>
+      <p><strong>适合客户：</strong>已有接待能力、希望开展入境游业务，但缺少海外线上入口、英文展示体系和 AI 内容生产能力的旅行社或地接社。</p>
+      <p>帮助旅行社快速启动入境游线上业务：我们提供海外账号搭建、英文资料规范与 AI 工具培训，协助传统旅行社建立 Google、社媒和咨询入口，让团队能够自主维护账号、生成英文内容，并更高效地服务海外游客。</p>
+    </section>
+
+    <section class="section">
+      <h2>核心团队</h2>
+      <div class="team-grid">
+        <div class="team-member">
+          <h3>Shawn Von</h3>
+          <span>创始人 / CEO</span>
+          <p>近20年旅游行业实战经验，深耕地接社全流程运营。</p>
+        </div>
+        <div class="team-member">
+          <h3>Liang（饶良）</h3>
+          <span>联合创始人 / CTO</span>
+          <p>瑞士伯尔尼理工大学 &amp; 瑞士西北大学双硕士，负责核心技术架构研发。</p>
+        </div>
+        <div class="team-member">
+          <h3>Altman（杨斌）</h3>
+          <span>项目总监 / 首席架构师</span>
+          <p>14 年技术研发与团队管理经验，电子科技大学 MBA，AI 工程化专家。</p>
+        </div>
+        <div class="team-member">
+          <h3>ziyange（张子扬）</h3>
+          <span>AI 全栈工程师</span>
+          <p>多 Agent 协同、RAG 检索增强等核心 AI 技术专家。</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>核心竞争力</h2>
+      <ul>
+        <li>技术基因的化学反应 – 硅谷创新 + 欧洲工程严谨，形成独特竞争优势。</li>
+        <li>双 Agent 业务闭环 – 销售端获客转化 + 操作端执行交付，完整商业闭环。</li>
+        <li>全球化布局 – 中欧双基因战略，规避内卷，借助欧洲合规标准，为出海铺路。</li>
+      </ul>
+    </section>
+
+    <section class="section">
+      <h2>联系方式</h2>
+      <p>📧 邮箱: <a href="mailto:info@tgxx.cc">info@tgxx.cc</a></p>
+      <p>📞 外联: 13558587201</p>
+      <p>📍 地址: 成都市高新区世纪城南路599号天府软件园D区</p>
+    </section>
+
+    <footer>
+      © 2026 天工智序软件科技有限公司 保留所有权利。
+    </footer>
+  </div>
+</body>
+
+</html>
