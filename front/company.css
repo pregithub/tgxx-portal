@@ -812,6 +812,20 @@ body {
 }
 
 @media (max-width: 768px) {
+    .nav-container {
+        padding: 0 1rem;
+    }
+
+    .logo-text {
+        font-size: 1rem;
+        line-height: 1.25;
+    }
+
+    .hero {
+        min-height: auto;
+        padding: 7rem 0 4rem;
+    }
+
     .nav-links {
         display: none;
     }
@@ -831,6 +845,49 @@ body {
     .hero-stats {
         flex-direction: column;
         gap: 2rem;
+    }
+
+    .product-circle {
+        width: min(320px, 82vw);
+        height: min(320px, 82vw);
+    }
+
+    .inner-circle {
+        width: 128px;
+        height: 128px;
+    }
+
+    .orbit-1 {
+        width: 210px;
+        height: 210px;
+    }
+
+    .orbit-2 {
+        width: 250px;
+        height: 250px;
+    }
+
+    .orbit-3 {
+        width: 290px;
+        height: 290px;
+    }
+
+    .orbit-4 {
+        width: 320px;
+        height: 320px;
+    }
+
+    .satellite {
+        font-size: 0.72rem;
+        padding: 0.35rem 0.65rem;
+    }
+
+    .orbit-3 .satellite {
+        right: -34px;
+    }
+
+    .orbit-4 .satellite {
+        left: -42px;
     }
 
     .vision-grid,
@@ -920,4 +977,220 @@ body {
 
 .hero .bubble-container {
     background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f0f23 100%);
+}
+
+/* Hero subtitle */
+.hero-subtitle {
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.9);
+    margin-top: -0.5rem;
+    margin-bottom: 2.5rem;
+    letter-spacing: 1px;
+}
+
+/* 入境游服务 Section */
+.inbound {
+    background: var(--white);
+}
+
+.inbound-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 3rem;
+    margin-bottom: 4rem;
+    align-items: center;
+}
+
+.inbound-text {
+    line-height: 1.8;
+}
+
+.inbound-text h3 {
+    font-size: 1.8rem;
+    color: var(--primary);
+    margin-bottom: 1.5rem;
+    font-weight: 700;
+}
+
+.inbound-text p {
+    color: var(--text-light);
+    margin-bottom: 1.5rem;
+    font-size: 1.05rem;
+}
+
+.inbound-target-card {
+    background: linear-gradient(135deg, rgba(233, 69, 96, 0.03) 0%, rgba(15, 52, 96, 0.03) 100%);
+    border: 1.5px dashed rgba(233, 69, 96, 0.3);
+    padding: 2.5rem;
+    border-radius: 20px;
+    position: relative;
+    overflow: hidden;
+}
+
+.inbound-target-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background: var(--highlight);
+}
+
+.inbound-target-card h4 {
+    font-size: 1.2rem;
+    color: var(--primary);
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 700;
+}
+
+.inbound-target-card p {
+    color: var(--text-light);
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+/* 三个视觉信息块 */
+.visual-blocks-container {
+    margin-top: 4rem;
+}
+
+.visual-blocks-title {
+    text-align: center;
+    font-size: 1.8rem;
+    color: var(--primary);
+    font-weight: 700;
+    margin-bottom: 2.5rem;
+}
+
+.visual-blocks-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+}
+
+.visual-block-card {
+    background: var(--gray);
+    padding: 2.5rem 2rem;
+    border-radius: 20px;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(0, 0, 0, 0.03);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.visual-block-card:hover {
+    transform: translateY(-8px);
+    background: var(--white);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
+    border-color: rgba(233, 69, 96, 0.15);
+}
+
+.visual-block-icon {
+    font-size: 2.5rem;
+    width: 70px;
+    height: 70px;
+    background: rgba(233, 69, 96, 0.08);
+    color: var(--highlight);
+    border-radius: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+    transition: all 0.3s ease;
+}
+
+.visual-block-card:hover .visual-block-icon {
+    background: var(--highlight);
+    color: var(--white);
+    transform: scale(1.05) rotate(5deg);
+}
+
+.visual-block-card h4 {
+    font-size: 1.25rem;
+    color: var(--primary);
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+.visual-block-card p {
+    color: var(--text-light);
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+/* Glassmorphic Contact Details */
+.contact-details {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    max-width: 900px;
+    margin: 2.5rem auto 1.5rem;
+}
+
+.contact-detail-item {
+    background: rgba(255, 255, 255, 0.15);
+    padding: 1.5rem 1rem;
+    border-radius: 15px;
+    backdrop-filter: blur(5px);
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    text-align: center;
+}
+
+.contact-detail-item:hover {
+    background: rgba(255, 255, 255, 0.25);
+    transform: translateY(-3px);
+}
+
+.contact-detail-icon {
+    font-size: 1.8rem;
+    margin-bottom: 0.5rem;
+}
+
+.contact-detail-item h4 {
+    color: var(--white);
+    font-size: 1.1rem;
+    margin-bottom: 0.4rem;
+    font-weight: 600;
+}
+
+.contact-detail-item p {
+    color: rgba(255, 255, 255, 0.95);
+    font-size: 0.95rem;
+    margin: 0;
+    line-height: 1.4;
+}
+
+/* Responsive adjustments for Inbound services & Contact */
+@media (max-width: 1024px) {
+    .visual-blocks-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .inbound-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    .visual-blocks-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .hero-subtitle {
+        font-size: 1.25rem;
+    }
+
+    .contact-details {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
 }

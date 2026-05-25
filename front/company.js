@@ -77,10 +77,16 @@ document.addEventListener('DOMContentLoaded', function() {
     // 数字滚动动画
     const statNumbers = document.querySelectorAll('.stat-number');
     statNumbers.forEach(num => {
-        const target = num.textContent;
-        const isPercentage = target.includes('%');
-        const isPlus = target.includes('+');
-        const targetNum = parseInt(target.replace(/\D/g, ''));
+        const target = num.textContent.trim();
+        const numMatch = target.match(/\d+(\.\d+)?/);
+        if (!numMatch || numMatch.index !== 0) {
+            // 非数字开头的表达（如“近20年”“双闭环”）保持原文本，避免动画过程破坏语义。
+            return;
+        }
+
+        const targetNum = parseFloat(numMatch[0]);
+        const prefix = target.substring(0, numMatch.index);
+        const suffix = target.substring(numMatch.index + numMatch[0].length);
 
         let current = 0;
         const duration = 2000;
@@ -92,7 +98,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 current = targetNum;
                 num.textContent = target;
             } else {
-                num.textContent = Math.floor(current) + (isPercentage ? '%' : '+');
+                const displayVal = Number.isInteger(targetNum) ? Math.floor(current) : current.toFixed(1);
+                num.textContent = prefix + displayVal + suffix;
                 requestAnimationFrame(animate);
             }
         };

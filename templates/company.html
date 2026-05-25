@@ -2,192 +2,363 @@
 <html lang="zh-CN">
 
 <head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>公司介绍 - 天工智序</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
-  <style>
-    :root {
-      --primary-hue: 210;
-      --bg-gradient: linear-gradient(135deg, hsl(var(--primary-hue), 30%, 12%), hsl(var(--primary-hue), 30%, 8%));
-      --glass-bg: rgba(255, 255, 255, 0.07);
-      --glass-border: rgba(255, 255, 255, 0.12);
-      --text-primary: #e0e4eb;
-      --text-secondary: #a0b1c2;
-      --accent: hsl(var(--primary-hue), 70%, 55%);
-    }
-
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0
-    }
-
-    body {
-      font-family: 'Inter', sans-serif;
-      background: var(--bg-gradient);
-      color: var(--text-primary);
-      min-height: 100vh;
-      padding: 1.5rem;
-    }
-
-    .container {
-      max-width: 800px;
-      margin: 0 auto;
-    }
-
-    h1 {
-      font-size: 2rem;
-      color: var(--accent);
-      margin-bottom: 0.6rem
-    }
-
-    h2 {
-      font-size: 1.5rem;
-      color: var(--accent);
-      margin-top: 1.5rem;
-      margin-bottom: 0.6rem;
-      border-left: 4px solid var(--accent);
-      padding-left: 0.6rem
-    }
-
-    p, li {
-      color: var(--text-secondary);
-      margin-bottom: 1rem;
-      line-height: 1.6;
-    }
-
-    .section {
-      margin-bottom: 2rem
-    }
-
-    .team-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-      gap: 1rem
-    }
-
-    .team-member {
-      background: var(--glass-bg);
-      border: 1px solid var(--glass-border);
-      border-radius: 0.8rem;
-      padding: 1rem;
-      text-align: center;
-    }
-
-    .team-member h3 {
-      margin: 0.4rem 0 0.2rem;
-      color: var(--text-primary);
-      font-size: 1rem
-    }
-
-    .team-member span {
-      font-size: 0.85rem;
-      color: var(--text-secondary)
-    }
-
-    a {
-      color: var(--accent);
-      text-decoration: none
-    }
-
-    blockquote {
-      background: var(--glass-bg);
-      border-left: 4px solid var(--accent);
-      padding: 1rem;
-      margin: 1rem 0;
-      border-radius: 0 0.5rem 0.5rem 0;
-    }
-
-    @media (prefers-color-scheme:light) {
-      :root {
-        --bg-gradient: linear-gradient(135deg, hsl(var(--primary-hue), 30%, 95%), hsl(var(--primary-hue), 30%, 90%));
-        --glass-bg: rgba(255, 255, 255, 0.85);
-        --glass-border: rgba(0, 0, 0, 0.08);
-        --text-primary: #212529;
-        --text-secondary: #495057;
-        --accent: hsl(var(--primary-hue), 70%, 45%)
-      }
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>天工智序 - 面向文旅行业的 AI 智能解决方案提供商</title>
+    <link rel="stylesheet" href="/front/company.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
 </head>
 
 <body>
-  <div class="container">
-    <header class="section">
-      <h1>天工智序软件科技有限公司</h1>
-    </header>
-
-    <section class="section">
-      <h2>公司概况</h2>
-      <p>天工智序 全球领先的 AI 智能解决方案提供商，公司融合 硅谷的创新基因 与 欧洲的严谨工程基因，打造行业领先的 Mult- Agent 智能协同系统，助力企业实现降本增效、业务闭环。</p>
-      <p>我们致力于通过 AI Agent、自动化工作流与行业知识系统，重构传统行业的运营方式与商业效率，帮助企业完成 AI 原生化升级。</p>
-    </section>
-
-    <section class="section">
-      <h2>愿景与使命</h2>
-      <p><strong>愿景：</strong>我们融合全球创新视野与严谨工程能力，致力于成为推动传统行业智能化转型的全球领先 AI 解决方案提供商。</p>
-      <p><strong>使命：</strong>以 AI Agent、自动化工作流与行业知识系统，帮助企业降低运营成本、提升协同效率，推动传统行业完成 AI 原生化升级。</p>
-    </section>
-
-    <section class="section">
-      <h2>核心产品 – 天工 Claw</h2>
-      <p>天工 Claw 是面向文旅行业的企业级智能运营中台，具备四大核心 Agent：</p>
-      <ol>
-        <li>获客驱动 Agent – 智能获客与转化，提升销售效率。</li>
-        <li>内容驱动 Agent – 自动化内容生成，赋能品牌传播。</li>
-        <li>计调操作 Agent – 自动化任务执行，降低人工成本。</li>
-        <li>数据分析 Agent – 实时数据洞察，助力决策。</li>
-      </ol>
-      <blockquote>双业务闭环：获客 + 内容 双驱动，操作端到端智能化，实现业务闭环。</blockquote>
-    </section>
-
-    <section class="section">
-      <h2>增值业务</h2>
-      <p>为传统旅行社提供入境旅游线上启动服务，帮助企业快速搭建面向海外游客的基础账号体系，包括 Google、海外社媒、WhatsApp / 邮箱等关键入口，并统一英文资料、账号信息和展示规范。</p>
-      <p>同时，我们通过半日 AI 实战培训，帮助团队掌握英文内容生成、翻译润色、社媒文案、邮件回复和基础视觉制作等实用能力。</p>
-      <p><strong>适合客户：</strong>已有接待能力、希望开展入境游业务，但缺少海外线上入口、英文展示体系和 AI 内容生产能力的旅行社或地接社。</p>
-    </section>
-
-    <section class="section">
-      <h2>核心团队</h2>
-      <div class="team-grid">
-        <div class="team-member">
-          <h3>Shawn Von</h3>
-          <span>创始人 / CEO</span>
+    <!-- 导航栏 -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo">
+                <span class="logo-icon">🎯</span>
+                <span class="logo-text">天工智序 / Tiangong Technologies</span>
+            </a>
+            <div class="nav-links">
+                <a href="#vision">公司概况</a>
+                <a href="#product">产品</a>
+                <a href="#inbound">入境游服务</a>
+                <a href="#team">团队</a>
+                <a href="#contact" class="btn-contact">联系我们</a>
+            </div>
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
         </div>
-        <div class="team-member">
-          <h3>Liang（饶良）</h3>
-          <span>联合创始人 / CTO</span>
+    </nav>
+
+    <!-- 移动端菜单 -->
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="#vision">公司概况</a>
+        <a href="#product">产品</a>
+        <a href="#inbound">入境游服务</a>
+        <a href="#team">团队</a>
+        <a href="#contact">联系我们</a>
+    </div>
+
+    <!-- Hero 区域 -->
+    <section class="hero">
+        <div class="hero-bg">
+            <div class="gradient-orb orb-1"></div>
+            <div class="gradient-orb orb-2"></div>
+            <div class="grid-pattern"></div>
+            <div class="bubble-container">
+                <div class="bubble"
+                    style="width: 40px; height: 40px; left: 10%; animation-duration: 8s; animation-delay: 0s;"></div>
+                <div class="bubble"
+                    style="width: 20px; height: 20px; left: 20%; animation-duration: 10s; animation-delay: 1s;"></div>
+                <div class="bubble"
+                    style="width: 60px; height: 60px; left: 35%; animation-duration: 12s; animation-delay: 2s;"></div>
+                <div class="bubble"
+                    style="width: 30px; height: 30px; left: 50%; animation-duration: 9s; animation-delay: 0.5s;"></div>
+                <div class="bubble"
+                    style="width: 50px; height: 50px; left: 65%; animation-duration: 11s; animation-delay: 1.5s;"></div>
+                <div class="bubble"
+                    style="width: 25px; height: 25px; left: 75%; animation-duration: 8s; animation-delay: 2.5s;"></div>
+                <div class="bubble"
+                    style="width: 45px; height: 45px; left: 85%; animation-duration: 10s; animation-delay: 3s;"></div>
+                <div class="bubble"
+                    style="width: 35px; height: 35px; left: 5%; animation-duration: 13s; animation-delay: 4s;"></div>
+            </div>
         </div>
-        <div class="team-member">
-          <h3>Altman（杨斌）</h3>
-          <span>项目总监 / 首席架构师</span>
+        <div class="hero-content">
+            <div class="badge">全球领先的 AI 智能解决方案提供商</div>
+            <h1 class="hero-title">
+                <span class="highlight">天工智序</span>
+            </h1>
+            <div class="hero-subtitle">面向文旅行业的 AI 智能解决方案提供商</div>
+            <p class="hero-desc">
+                天工智序融合硅谷的创新基因与欧洲的严谨工程基因，打造行业领先的 Multi-Agent 智能协同系统，助力企业实现降本增效、业务闭环。<br><br>
+                我们致力于通过 AI Agent、自动化工作流与行业知识系统，重构传统行业的运营方式与商业效率，帮助企业完成 AI 原生化升级。
+            </p>
+            <div class="hero-actions">
+                <a href="#product" class="btn btn-primary">了解产品</a>
+                <a href="mailto:info@tgxx.cc?subject=预约演示" class="btn btn-outline">预约演示</a>
+            </div>
+            <div class="hero-stats">
+                <div class="stat-item">
+                    <span class="stat-number">近20年</span>
+                    <span class="stat-label">旅游行业实战经验</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">4大</span>
+                    <span class="stat-label">核心 Agent</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">双闭环</span>
+                    <span class="stat-label">获客 + 内容业务闭环</span>
+                </div>
+            </div>
         </div>
-        <div class="team-member">
-          <h3>ziyange（张子扬）</h3>
-          <span>AI 全栈工程师</span>
-        </div>
-      </div>
     </section>
 
-    <section class="section">
-      <h2>核心竞争力</h2>
-      <ul>
-        <li>技术基因的化学反应 – 硅���创新 + 欧洲工程严谨，形成独特竞争优势。</li>
-        <li>双 Agent 业务闭环 – 销售端获客转化 + 操作端执行交付，完整商业闭环。</li>
-        <li>全球化布局 – 中欧双基因战略，规避内卷，借助欧洲合规标准，为出海铺路。</li>
-      </ul>
+    <!-- 愿景与使命 section -->
+    <section class="section vision" id="vision">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">OUR VISION & MISSION</span>
+                <h2 class="section-title">愿景与使命</h2>
+                <p class="section-desc">融合全球创新视野与严谨工程能力，助力企业实现 AI 原生化升级</p>
+            </div>
+            <div class="vision-grid-2">
+                <div class="vision-card">
+                    <div class="vision-icon">🌏</div>
+                    <h3>企业愿景</h3>
+                    <p style="text-align: left; line-height: 1.6; margin-top: 1rem;">
+                        我们融合全球创新视野与严谨工程能力，致力于成为推动传统行业智能化转型的全球领先 AI 解决方案提供商。</p>
+                </div>
+                <div class="vision-card">
+                    <div class="vision-icon">🎯</div>
+                    <h3>企业使命</h3>
+                    <p style="text-align: left; line-height: 1.6; margin-top: 1rem;">以 AI
+                        Agent、自动化工作流与行业知识系统，帮助企业降低运营成本、提升协同效率，推动传统行业完成 AI 原生化升级。</p>
+                </div>
+            </div>
+        </div>
     </section>
 
-    <section class="section" id="contact">
-      <h2>联系方式</h2>
-      <p>📧 邮箱: <a href="mailto:info@tgxx.cc">info@tgxx.cc</a></p>
-      <p>📞 外联: 13558587201</p>
-      <p>📍 地址: 成都市高新区世纪城南路599号天府软件园D区</p>
+    <!-- 产品 section -->
+    <section class="section product" id="product">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">OUR PRODUCT</span>
+                <h2 class="section-title">核心产品 – 天工 Claw</h2>
+                <p class="section-desc" style="max-width: 800px;">天工 Claw 是面向文旅行业的企业级智能运营中台，具备四大核心 Agent：</p>
+            </div>
+            <div class="product-showcase">
+                <div class="product-visual">
+                    <div class="product-circle">
+                        <div class="inner-circle">
+                            <span class="product-name">天工Claw</span>
+                            <span class="product-tagline">智能协同 · 极致效率</span>
+                        </div>
+                        <div class="orbit orbit-1">
+                            <div class="satellite">🎯 获客驱动 Agent</div>
+                        </div>
+                        <div class="orbit orbit-2">
+                            <div class="satellite">📝 内容驱动 Agent</div>
+                        </div>
+                        <div class="orbit orbit-3">
+                            <div class="satellite">⚙️ 计调操作 Agent</div>
+                        </div>
+                        <div class="orbit orbit-4">
+                            <div class="satellite">📊 数据分析 Agent</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-features">
+                    <div class="feature-item">
+                        <div class="feature-icon">🎯</div>
+                        <div class="feature-content">
+                            <h4>获客驱动 Agent</h4>
+                            <p>智能获客与转化，提升销售效率。</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">📝</div>
+                        <div class="feature-content">
+                            <h4>内容驱动 Agent</h4>
+                            <p>自动化内容生成，赋能品牌传播。</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">⚙️</div>
+                        <div class="feature-content">
+                            <h4>计调操作 Agent</h4>
+                            <p>自动化任务执行，降低人工成本。</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">📊</div>
+                        <div class="feature-content">
+                            <h4>数据分析 Agent</h4>
+                            <p>实时数据洞察，助力决策。</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">🔗</div>
+                        <div class="feature-content">
+                            <h4>双业务闭环</h4>
+                            <p>获客 + 内容双驱动，操作端到端智能化，实现业务闭环。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
-  </div>
+
+    <!-- 增值业务 / 入境游线上启动服务 section -->
+    <section class="section inbound" id="inbound">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">VALUE-ADDED SERVICES</span>
+                <h2 class="section-title">入境旅游线上启动服务</h2>
+                <p class="section-desc">帮助旅行社快速启动入境游线上业务，打好全球化获客基础</p>
+            </div>
+
+            <div class="inbound-grid">
+                <div class="inbound-text">
+                    <h3>全面打通海外游客触达通路</h3>
+                    <p>为传统旅行社搭建面向海外游客的基础账号体系，包括 Google、海外社媒、WhatsApp、邮箱等关键入口，统一英文资料、账号信息和展示规范。</p>
+                    <p>通过我们的服务，协助传统旅行社建立起与海外客户直接沟通的桥梁，规范化海外英文形象展示，在 Google 商家及主流社交媒体渠道中建立权威的线上入口，确保业务出海的第一步走得稳健、专业。</p>
+                    <p>同时，我们提供半日 AI
+                        实战培训，帮助团队掌握英文内容生成、翻译润色、社媒文案、邮件回复和基础视觉制作等实用能力，让旅行社具备自主搭建、自主管理、持续输出英文内容的能力，为入境旅游业务获客和后续运营打好基础。</p>
+                </div>
+
+                <div class="inbound-target-card">
+                    <h4>🎯 适合客户</h4>
+                    <p>已有接待能力、希望开展入境游业务，但缺少海外线上入口、英文展示体系和 AI 内容生产能力的旅行社或地接社。</p>
+                </div>
+            </div>
+
+            <!-- 三类视觉信息块 -->
+            <div class="visual-blocks-container">
+                <h3 class="visual-blocks-title">核心业务赋能模块</h3>
+                <div class="visual-blocks-grid">
+                    <div class="visual-block-card">
+                        <div class="visual-block-icon">🤖</div>
+                        <h4>AI Agent (天工 Claw)</h4>
+                        <p>面向文旅行业的智能运营中台，获客与操作双向驱动，打造端到端智能闭环工作流。</p>
+                    </div>
+                    <div class="visual-block-card">
+                        <div class="visual-block-icon">🌐</div>
+                        <h4>入境游线上启动</h4>
+                        <p>快速搭建海外主流社媒、Google Map 商家及 WhatsApp 沟通入口，统一英文规范。</p>
+                    </div>
+                    <div class="visual-block-card">
+                        <div class="visual-block-icon">🎓</div>
+                        <h4>旅行社 AI 培训</h4>
+                        <p>半日 AI 工具深度实战培训，赋能团队英文文案生成、视觉设计、智能翻译与邮件回复能力。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 团队 section -->
+    <section class="section team" id="team">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">OUR TEAM</span>
+                <h2 class="section-title">核心团队</h2>
+                <p class="section-desc">汇聚全球顶尖人才与行业资深精英</p>
+            </div>
+            <div class="team-grid">
+                <div class="team-card">
+                    <div class="team-avatar">
+                        <img src="/front/team/冯少军.jpg" alt="冯少军" />
+                    </div>
+                    <h3 class="team-name">Shawn Von / 冯少军</h3>
+                    <span class="team-role">创始人 / CEO</span>
+                    <p class="team-desc">近20年旅游行业实战经验，深耕地接社全流程运营。</p>
+                </div>
+                <div class="team-card">
+                    <div class="team-avatar">
+                        <img src="/front/team/饶良.jpg" alt="饶良" />
+                    </div>
+                    <h3 class="team-name">Liang / 饶良</h3>
+                    <span class="team-role">联合创始人 / CTO</span>
+                    <p class="team-desc">瑞士伯尔尼理工大学 & 瑞士西北大学双硕士，负责核心技术架构研发。</p>
+                </div>
+                <div class="team-card">
+                    <div class="team-avatar">
+                        <img src="/front/team/杨斌.jpg" alt="杨斌" />
+                    </div>
+                    <h3 class="team-name">Altman / 杨斌</h3>
+                    <span class="team-role">项目总监 / 首席架构师</span>
+                    <p class="team-desc">14 年技术研发与团队管理经验，电子科技大学 MBA，AI 工程化专家。</p>
+                </div>
+                <div class="team-card">
+                    <div class="team-avatar">
+                        <img src="/front/team/张子扬.jpg" alt="张子扬" />
+                    </div>
+                    <h3 class="team-name">ziyange / 张子扬</h3>
+                    <span class="team-role">AI 全栈工程师</span>
+                    <p class="team-desc">多 Agent 协同、RAG 检索增强等核心 AI 技术专家。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 联系 section -->
+    <section class="section contact" id="contact">
+        <div class="container">
+            <div class="contact-box">
+                <h2>准备好开启智能化转型了吗？</h2>
+                <p>联系我们，获取专属解决方案</p>
+                <div class="contact-actions">
+                    <a href="mailto:info@tgxx.cc" class="btn btn-primary">联系我们</a>
+                    <a href="mailto:info@tgxx.cc?subject=预约演示" class="btn btn-outline">预约演示</a>
+                </div>
+
+                <!-- Glassmorphic details -->
+                <div class="contact-details">
+                    <div class="contact-detail-item">
+                        <div class="contact-detail-icon">✉️</div>
+                        <h4>官方邮箱</h4>
+                        <p><a href="mailto:info@tgxx.cc" style="color: inherit; text-decoration: none;">info@tgxx.cc</a>
+                        </p>
+                    </div>
+                    <div class="contact-detail-item">
+                        <div class="contact-detail-icon">📞</div>
+                        <h4>外联电话</h4>
+                        <p>13558587201</p>
+                    </div>
+                    <div class="contact-detail-item">
+                        <div class="contact-detail-icon">📍</div>
+                        <h4>公司地址</h4>
+                        <p>成都市高新区世纪城南路599号<br>天府软件园D区</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <span class="logo-icon">🎯</span>
+                    <span class="logo-text">天工智序</span>
+                    <p>面向文旅行业的 AI 智能解决方案提供商</p>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-col">
+                        <h4>产品与服务</h4>
+                        <a href="#product">天工 Claw</a>
+                        <a href="#inbound">入境游线上启动服务</a>
+                        <a href="#inbound">AI 实战培训</a>
+                    </div>
+                    <div class="footer-col">
+                        <h4>公司</h4>
+                        <a href="#vision">公司概况</a>
+                        <a href="#team">团队介绍</a>
+                        <a href="/recruit">加入我们</a>
+                    </div>
+                    <div class="footer-col">
+                        <h4>联系</h4>
+                        <a href="mailto:info@tgxx.cc">info@tgxx.cc</a>
+                        <a href="tel:13558587201">13558587201</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 天工智序软件科技有限公司. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/front/company.js"></script>
 </body>
 
 </html>
