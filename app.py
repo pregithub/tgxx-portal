@@ -54,8 +54,8 @@ def ws_monitor(ws):
 
 @app.route("/")
 def index():
-    """Root redirect to index.html"""
-    return redirect("/index.html")
+    """Root redirect to H5 portal"""
+    return redirect("/h5/")
 
 
 @app.route("/index.html")
