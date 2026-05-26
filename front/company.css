@@ -204,7 +204,7 @@ body {
 
 .hero-content {
     position: relative;
-    z-index: 1;
+    z-index: 5;
     text-align: center;
     padding: 2rem;
     max-width: 900px;
@@ -1192,5 +1192,135 @@ body {
     .contact-details {
         grid-template-columns: 1fr;
         gap: 1rem;
+    }
+}
+
+/* Neural Synapse WebGL Canvas Styling */
+#canvas-neural {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    cursor: crosshair;
+}
+
+/* Premium Floating Glassmorphic Neural Control Widget */
+.neural-widget {
+    position: absolute;
+    bottom: 30px;
+    right: 30px;
+    z-index: 10;
+    width: 250px;
+    padding: 1.25rem;
+    backdrop-filter: blur(16px) saturate(180%);
+    -webkit-backdrop-filter: blur(16px) saturate(180%);
+    background: linear-gradient(135deg, rgba(20, 20, 40, 0.45) 0%, rgba(10, 10, 25, 0.65) 100%);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 20px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+    transition: all 0.3s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+}
+
+.neural-widget:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.12);
+    border-color: rgba(255, 255, 255, 0.25);
+}
+
+.widget-header {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 0.5rem;
+}
+
+.widget-icon {
+    font-size: 1.1rem;
+}
+
+.widget-title {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.85);
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+
+.control-section {
+    margin-bottom: 1rem;
+}
+
+.control-label {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.5);
+    margin-bottom: 0.5rem;
+}
+
+.theme-ring {
+    display: flex;
+    gap: 12px;
+    justify-content: flex-start;
+}
+
+.theme-dot {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.34, 1.2, 0.64, 1);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4), inset 0 1px 1px rgba(255, 255, 255, 0.3);
+    border: 1.5px solid transparent;
+}
+
+.theme-dot.active {
+    transform: scale(1.15);
+    border-color: white;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.6);
+}
+
+.theme-dot:hover {
+    transform: scale(1.08);
+}
+
+.widget-actions {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+}
+
+.widget-btn {
+    background: rgba(255, 255, 255, 0.08);
+    border: 0.5px solid rgba(255, 255, 255, 0.2);
+    padding: 6px 0;
+    border-radius: 10px;
+    font-family: 'Inter', 'Noto Sans SC', sans-serif;
+    font-weight: 600;
+    font-size: 0.7rem;
+    color: white;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-align: center;
+}
+
+.widget-btn:hover {
+    background: rgba(255, 255, 255, 0.18);
+    border-color: rgba(255, 255, 255, 0.4);
+    transform: translateY(-1px);
+}
+
+.widget-btn:active {
+    transform: translateY(1px);
+}
+
+@media (max-width: 768px) {
+    .neural-widget {
+        display: none; /* Hide interactive panel on mobile to avoid viewport clutter */
     }
 }

@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>天工智序 - 面向文旅行业的 AI 智能解决方案提供商</title>
+    <title>天工智序 - AI 智能解决方案提供商</title>
     <link rel="stylesheet" href="/front/company.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -23,9 +23,9 @@
             </a>
             <div class="nav-links">
                 <a href="#vision">公司概况</a>
-                <a href="#product">产品</a>
-                <a href="#inbound">入境游服务</a>
-                <a href="#team">团队</a>
+                <a href="#product">产品介绍</a>
+                <a href="#inbound">培训服务</a>
+                <a href="#team">团队介绍</a>
                 <a href="#contact" class="btn-contact">联系我们</a>
             </div>
             <button class="mobile-menu-btn" id="mobileMenuBtn">
@@ -39,37 +39,48 @@
     <!-- 移动端菜单 -->
     <div class="mobile-menu" id="mobileMenu">
         <a href="#vision">公司概况</a>
-        <a href="#product">产品</a>
-        <a href="#inbound">入境游服务</a>
-        <a href="#team">团队</a>
+        <a href="#product">产品介绍</a>
+        <a href="#inbound">培训服务</a>
+        <a href="#team">团队介绍</a>
         <a href="#contact">联系我们</a>
     </div>
 
     <!-- Hero 区域 -->
     <section class="hero">
         <div class="hero-bg">
+            <canvas id="canvas-neural"></canvas>
             <div class="gradient-orb orb-1"></div>
             <div class="gradient-orb orb-2"></div>
-            <div class="grid-pattern"></div>
-            <div class="bubble-container">
-                <div class="bubble"
-                    style="width: 40px; height: 40px; left: 10%; animation-duration: 8s; animation-delay: 0s;"></div>
-                <div class="bubble"
-                    style="width: 20px; height: 20px; left: 20%; animation-duration: 10s; animation-delay: 1s;"></div>
-                <div class="bubble"
-                    style="width: 60px; height: 60px; left: 35%; animation-duration: 12s; animation-delay: 2s;"></div>
-                <div class="bubble"
-                    style="width: 30px; height: 30px; left: 50%; animation-duration: 9s; animation-delay: 0.5s;"></div>
-                <div class="bubble"
-                    style="width: 50px; height: 50px; left: 65%; animation-duration: 11s; animation-delay: 1.5s;"></div>
-                <div class="bubble"
-                    style="width: 25px; height: 25px; left: 75%; animation-duration: 8s; animation-delay: 2.5s;"></div>
-                <div class="bubble"
-                    style="width: 45px; height: 45px; left: 85%; animation-duration: 10s; animation-delay: 3s;"></div>
-                <div class="bubble"
-                    style="width: 35px; height: 35px; left: 5%; animation-duration: 13s; animation-delay: 4s;"></div>
+            <div class="grid-pattern" style="opacity: 0.15; pointer-events: none;"></div>
+        </div>
+
+        <!-- 智能神经元交互微件 -->
+        <div class="neural-widget">
+            <div class="widget-header">
+                <span class="widget-icon">🤖</span>
+                <span class="widget-title">天工智序 · 神经元交互</span>
+            </div>
+            <div class="widget-controls">
+                <div class="control-section">
+                    <div class="control-label">色彩共振</div>
+                    <div class="theme-ring">
+                        <div class="theme-dot active" data-theme="0"
+                            style="background: radial-gradient(circle at 30% 30%, #e94560, #9b2c2c);"></div>
+                        <div class="theme-dot" data-theme="1"
+                            style="background: radial-gradient(circle at 30% 30%, #b794f4, #553c9a);"></div>
+                        <div class="theme-dot" data-theme="2"
+                            style="background: radial-gradient(circle at 30% 30%, #63b3ed, #2c5282);"></div>
+                        <div class="theme-dot" data-theme="3"
+                            style="background: radial-gradient(circle at 30% 30%, #68d391, #22543d);"></div>
+                    </div>
+                </div>
+                <div class="widget-actions">
+                    <button class="widget-btn" id="morphBtn">🌀 形态幻化</button>
+                    <button class="widget-btn" id="resetCamBtn">🎯 重置视角</button>
+                </div>
             </div>
         </div>
+
         <div class="hero-content">
             <div class="badge">全球领先的 AI 智能解决方案提供商</div>
             <h1 class="hero-title">
@@ -187,8 +198,8 @@
                     <div class="feature-item">
                         <div class="feature-icon">🔗</div>
                         <div class="feature-content">
-                            <h4>双业务闭环</h4>
-                            <p>获客 + 内容双驱动，操作端到端智能化，实现业务闭环。</p>
+                            <h4>端到端业务闭环</h4>
+                            <p>从获客 + 内容 + 计调 + 数据分析多agent驱动，操作端到端智能化，实现业务闭环。</p>
                         </div>
                     </div>
                 </div>
@@ -257,7 +268,7 @@
                     <div class="team-avatar">
                         <img src="/front/team/冯少军.jpg" alt="冯少军" />
                     </div>
-                    <h3 class="team-name">Shawn Von / 冯少军</h3>
+                    <h3 class="team-name">Shawn Von </h3>
                     <span class="team-role">创始人 / CEO</span>
                     <p class="team-desc">近20年旅游行业实战经验，深耕地接社全流程运营。</p>
                 </div>
@@ -265,7 +276,7 @@
                     <div class="team-avatar">
                         <img src="/front/team/饶良.jpg" alt="饶良" />
                     </div>
-                    <h3 class="team-name">Liang / 饶良</h3>
+                    <h3 class="team-name">Liang（饶良）</h3>
                     <span class="team-role">联合创始人 / CTO</span>
                     <p class="team-desc">瑞士伯尔尼理工大学 & 瑞士西北大学双硕士，负责核心技术架构研发。</p>
                 </div>
@@ -273,7 +284,7 @@
                     <div class="team-avatar">
                         <img src="/front/team/杨斌.jpg" alt="杨斌" />
                     </div>
-                    <h3 class="team-name">Altman / 杨斌</h3>
+                    <h3 class="team-name">Altman simba</h3>
                     <span class="team-role">项目总监 / 首席架构师</span>
                     <p class="team-desc">14 年技术研发与团队管理经验，电子科技大学 MBA，AI 工程化专家。</p>
                 </div>
@@ -281,7 +292,7 @@
                     <div class="team-avatar">
                         <img src="/front/team/张子扬.jpg" alt="张子扬" />
                     </div>
-                    <h3 class="team-name">ziyange / 张子扬</h3>
+                    <h3 class="team-name">ziyange（张子扬）</h3>
                     <span class="team-role">AI 全栈工程师</span>
                     <p class="team-desc">多 Agent 协同、RAG 检索增强等核心 AI 技术专家。</p>
                 </div>
@@ -307,11 +318,6 @@
                         <h4>官方邮箱</h4>
                         <p><a href="mailto:info@tgxx.cc" style="color: inherit; text-decoration: none;">info@tgxx.cc</a>
                         </p>
-                    </div>
-                    <div class="contact-detail-item">
-                        <div class="contact-detail-icon">📞</div>
-                        <h4>外联电话</h4>
-                        <p>13558587201</p>
                     </div>
                     <div class="contact-detail-item">
                         <div class="contact-detail-icon">📍</div>
@@ -359,6 +365,7 @@
     </footer>
 
     <script src="/front/company.js"></script>
+    <script type="module" src="/front/neural.js"></script>
 </body>
 
 </html>
