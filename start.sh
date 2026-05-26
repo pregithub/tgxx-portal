@@ -8,7 +8,7 @@ fi
 export FLASK_APP=app.py
 export FLASK_ENV=development
 # Run the Flask application
-python3 - <<'PY'
+python - <<'PY'
 import app
-app.run_h5_portal()
+app.run_h5_portal(host='0.0.0.0', port=8888, debug=True)
 PY
