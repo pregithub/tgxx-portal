@@ -94,6 +94,11 @@ def h5_entry():
     return render_template("h5_entry.html")
 
 
+@app.route("/img/<path:filename>")
+def serve_images(filename):
+    return send_from_directory(os.path.join(APP_DIR, 'images'), filename)
+
+
 # =============================================================================
 # API Endpoints
 # =============================================================================

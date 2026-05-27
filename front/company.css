@@ -1446,6 +1446,109 @@ body {
     line-height: 1.8;
 }
 
+/* AI生成案例展示 */
+.engine-cases {
+    margin-top: 2.5rem;
+    padding-top: 2rem;
+    border-top: 1px dashed rgba(233, 69, 96, 0.3);
+}
+
+.cases-title {
+    font-size: 1.2rem;
+    color: var(--primary);
+    margin-bottom: 1.5rem;
+    font-weight: 600;
+}
+
+.cases-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+}
+
+.case-item {
+    background: var(--white);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.case-item:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 30px rgba(233, 69, 96, 0.15);
+}
+
+.case-item img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.case-caption {
+    padding: 1rem;
+    font-size: 0.95rem;
+    color: var(--text-light);
+    text-align: center;
+    background: linear-gradient(135deg, #f8f9fa 0%, #fff 100%);
+}
+
+/* 提示词折叠展示 */
+.case-prompt {
+    border-top: 1px solid #eee;
+    background: #fafafa;
+}
+
+.prompt-toggle {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.8rem 1rem;
+    cursor: pointer;
+    font-size: 0.85rem;
+    color: var(--accent);
+    font-weight: 500;
+    transition: background 0.2s ease;
+}
+
+.prompt-toggle:hover {
+    background: #f0f0f0;
+}
+
+.toggle-icon {
+    font-size: 0.7rem;
+    transition: transform 0.3s ease;
+}
+
+.prompt-content {
+    display: none;
+    padding: 0 1rem 1rem 1rem;
+    font-size: 0.85rem;
+    color: var(--text-light);
+    line-height: 1.7;
+}
+
+.prompt-content p {
+    margin-bottom: 0.5rem;
+}
+
+.prompt-content ul {
+    margin-left: 1.2rem;
+    margin-top: 0.3rem;
+}
+
+.prompt-content li {
+    margin-bottom: 0.3rem;
+}
+
+.case-prompt.active .prompt-content {
+    display: block;
+}
+
+.case-prompt.active .toggle-icon {
+    transform: rotate(180deg);
+}
+
 @media (max-width: 992px) {
     .agent-engine-block {
         padding: 2.5rem;

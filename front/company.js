@@ -42,6 +42,14 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
+    // 提示词折叠展示
+    document.querySelectorAll('.prompt-toggle').forEach(toggle => {
+        toggle.addEventListener('click', function() {
+            const prompt = this.closest('.case-prompt');
+            prompt.classList.toggle('active');
+        });
+    });
+
     // 视差效果和动画
     const observerOptions = {
         threshold: 0.1,
