@@ -4,6 +4,10 @@ Provides customer-facing H5 pages for company intro, recruitment, and agent flow
 """
 
 import os
+import time
+import json
+import threading
+from datetime import datetime
 from flask import Flask, request, jsonify, render_template, redirect, url_for, session, g, send_from_directory
 from flask_sock import Sock
 
@@ -18,12 +22,70 @@ sock = Sock(app)
 
 # Get the directory where app.py is located
 APP_DIR = os.path.dirname(os.path.abspath(__file__))
-
-
+DATA_DIR = os.path.join(APP_DIR, "data")
+APPLICATIONS_FILE = os.path.join(DATA_DIR, "fde_applications.jsonl")
 # =============================================================================
-# WebSocket Setup (For Real-time Monitoring)
+# WebSocket Setup (For Real-time Monitoring & Simulation)
 # =============================================================================
 connected_clients = []
+
+SIMULATION_CONFIG = {
+    "dispatchTargets": [
+        { "role": "订单机器人", "content": "创建新订单: 云南5日游, 3人" },
+        { "role": "酒店机器人", "content": "搜索酒店: 大理, 4晚, 3人" },
+        { "role": "车辆机器人", "content": "搜索车辆: 7座, 5天" },
+        { "role": "导游机器人", "content": "搜索导游: 云南, 5天" },
+        { "role": "餐饮机器人", "content": "搜索餐厅: 大理+丽江, 5天" },
+        { "role": "景区机器人", "content": "搜索景区: 玉龙雪山, 丽江古城" },
+        { "role": "计调机器人", "content": "生成行程计划" },
+        { "role": "财务机器人", "content": "计算费用明细" }
+    ],
+    "aiReplies": [
+        "好的！我来为您规划这次云南之旅。根据您的需求，我需要先了解一些信息...",
+        "根据您的要求，我为您推荐以下行程方案：\n\n📍 目的地：云南大理+丽江\n⏰ 时长：5天4晚\n👨‍👩‍👧 人数：3人\n💰 预算：约9000元（人均3000）",
+        "我已经为您匹配了以下资源：\n\n🏨 酒店：大理古城客栈\n🚗 车辆：7座商务车\n🎤 导游：王师傅（资深导游）",
+        "好的，您的订单已提交成功！我们会尽快为您确认资源，稍后会有专人与您电话联系确认细节。"
+    ]
+}
+
+def format_time():
+    return datetime.now().strftime("%H:%M:%S")
+
+def run_simulation_thread(ws):
+    try:
+        # 1. Send USER_MESSAGE
+        ws.send(json.dumps({
+            "type": "USER_MESSAGE",
+            "content": "我想去云南旅游，3个人，5天4晚",
+            "timestamp": format_time()
+        }))
+        time.sleep(1.0)
+        
+        # 2. Send dispatch messages with 800ms interval
+        for target in SIMULATION_CONFIG["dispatchTargets"]:
+            ws.send(json.dumps({
+                "type": "AI_DISPATCH_MESSAGE",
+                "target_role": target["role"],
+                "content": target["content"],
+                "timestamp": format_time()
+            }))
+            time.sleep(0.8)
+            
+        # 3. Send final AI reply
+        ws.send(json.dumps({
+            "type": "AI_FINAL_REPLY",
+            "content": SIMULATION_CONFIG["aiReplies"][1],
+            "timestamp": format_time()
+        }))
+        time.sleep(1.0)
+        
+        # 4. Send simulation end
+        ws.send(json.dumps({
+            "type": "SIMULATION_END",
+            "timestamp": format_time()
+        }))
+    except Exception as e:
+        print(f"Simulation error: {e}")
 
 @sock.route('/ws/monitor')
 def ws_monitor(ws):
@@ -34,6 +96,11 @@ def ws_monitor(ws):
             data = ws.receive()
             if data is None:
                 break
+            
+            # Handle simulation request
+            if data == 'START_SIMULATION':
+                threading.Thread(target=run_simulation_thread, args=(ws,)).start()
+                
             # Broadcast to all clients
             for client in connected_clients:
                 if client != ws:
@@ -46,7 +113,6 @@ def ws_monitor(ws):
     finally:
         if ws in connected_clients:
             connected_clients.remove(ws)
-
 
 # =============================================================================
 # Routes
@@ -121,6 +187,44 @@ def api_agent_flow_status():
         "agents": [],
         "total": 0
     })
+
+
+@app.route("/api/recruit/apply", methods=["POST"])
+def api_recruit_apply():
+    """API: Save FDE course applications from the recruitment page."""
+    payload = request.get_json(silent=True) or {}
+    required_fields = ("name", "phone", "identity")
+    missing = [field for field in required_fields if not str(payload.get(field, "")).strip()]
+
+    if missing:
+        return jsonify({
+            "success": False,
+            "message": "请填写姓名、联系方式和当前身份。"
+        }), 400
+
+    if not payload.get("consent"):
+        return jsonify({
+            "success": False,
+            "message": "请先勾选联系授权。"
+        }), 400
+
+    application = {
+        "submitted_at": datetime.now().isoformat(timespec="seconds"),
+        "name": str(payload.get("name", "")).strip()[:80],
+        "phone": str(payload.get("phone", "")).strip()[:120],
+        "identity": str(payload.get("identity", "")).strip()[:80],
+        "city": str(payload.get("city", "")).strip()[:120],
+        "goal": str(payload.get("goal", "")).strip()[:120],
+        "message": str(payload.get("message", "")).strip()[:1000],
+        "user_agent": request.headers.get("User-Agent", "")[:300],
+        "remote_addr": request.headers.get("X-Forwarded-For", request.remote_addr or "").split(",")[0].strip()
+    }
+
+    os.makedirs(DATA_DIR, exist_ok=True)
+    with open(APPLICATIONS_FILE, "a", encoding="utf-8") as file:
+        file.write(json.dumps(application, ensure_ascii=False) + "\n")
+
+    return jsonify({"success": True})
 
 
 # =============================================================================

@@ -162,7 +162,7 @@ class AgentFlowMonitor {
 
     // 连接 WebSocket
     connect() {
-        const wsUrl = `ws://192.168.1.73:8080/ws/monitor`;
+        const wsUrl = (window.location.protocol === 'https:' ? 'wss://' : 'ws://') + window.location.host + '/ws/monitor';
         this.ws = new WebSocket(wsUrl);
 
         this.updateConnectionStatus('connecting');
