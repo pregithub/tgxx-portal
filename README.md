@@ -2,6 +2,10 @@
 
 H5 客户门户是为客户提供的前端界面，支持订单查询、信息采集、计划书下载等功能。
 
+## 自动部署
+
+仓库已配置 GitHub Actions：Push 到 `main` 后自动校验，并通过 SSH 部署到阿里云 systemd 服务。首次服务器初始化、GitHub Secrets 清单及排错命令见 [DEPLOYMENT.md](DEPLOYMENT.md)。
+
 ## 功能概述
 
 ### 核心功能

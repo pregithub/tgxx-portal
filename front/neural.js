@@ -541,8 +541,15 @@ function buildVisualization() {
         });
     });
     const edgeGeo = new THREE.BufferGeometry();
-    const tArray = new Array(edgeStarts.length).fill(0).map((_,i) => (i % 16) / 15);
-    edgeGeo.setAttribute('position', new THREE.BufferAttribute(new Float32Array(tArray), 1));
+    // One scalar interpolation value per edge vertex. edgeStarts stores XYZ triples,
+    // so using its raw array length created three times too many vertices and left
+    // the custom attributes out of bounds, producing NaN geometry in Three.js.
+    const edgeVertexCount = edgeStarts.length / 3;
+    const tPositions = [];
+    for (let i = 0; i < edgeVertexCount; i++) {
+        tPositions.push((i % 16) / 15, 0, 0);
+    }
+    edgeGeo.setAttribute('position', new THREE.BufferAttribute(new Float32Array(tPositions), 3));
     edgeGeo.setAttribute('aStart', new THREE.BufferAttribute(new Float32Array(edgeStarts), 3));
     edgeGeo.setAttribute('aEnd', new THREE.BufferAttribute(new Float32Array(edgeEnds), 3));
     edgeGeo.setAttribute('aStrength', new THREE.BufferAttribute(new Float32Array(strengths), 1));

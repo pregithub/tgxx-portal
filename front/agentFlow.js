@@ -1,5 +1,5 @@
 /**
- * AI 智能计调流转监控大屏 - 前端脚本
+ * AI 智能业务流转监控大屏 - 前端脚本
  * 处理 WebSocket 连接、动态节点展示、数据流向可视化
  */
 
@@ -24,55 +24,55 @@ class AgentFlowMonitor {
                 initial: true
             },
             // 资源对接方 - 动态展示
-            '地接方': {
-                icon: '🏢',
+            '供应方': {
+                icon: '🏭',
                 type: 'resource',
                 x: 0.2,
                 y: 0.3,
-                description: '地接社资源对接',
-                resourceType: 'ground'
+                description: '供应与采购资源对接',
+                resourceType: 'supplier'
             },
-            '酒店方': {
-                icon: '🏨',
+            '仓储方': {
+                icon: '📦',
                 type: 'resource',
                 x: 0.8,
                 y: 0.3,
-                description: '酒店资源匹配',
-                resourceType: 'hotel'
+                description: '库存与仓储协同',
+                resourceType: 'warehouse'
             },
-            '车辆方': {
-                icon: '🚗',
+            '物流方': {
+                icon: '🚚',
                 type: 'resource',
                 x: 0.15,
                 y: 0.6,
-                description: '车队调度匹配',
-                resourceType: 'vehicle'
+                description: '物流与交付调度',
+                resourceType: 'logistics'
             },
-            '导游方': {
-                icon: '🎤',
+            '客服方': {
+                icon: '🎧',
                 type: 'resource',
                 x: 0.85,
                 y: 0.6,
-                description: '导游资源匹配',
-                resourceType: 'guide'
+                description: '客户沟通与服务协同',
+                resourceType: 'service'
             },
-            '餐饮方': {
-                icon: '🍽️',
+            '财务方': {
+                icon: '💹',
                 type: 'resource',
                 x: 0.3,
                 y: 0.8,
-                description: '餐厅资源匹配',
-                resourceType: 'restaurant'
+                description: '成本核算与结算协同',
+                resourceType: 'finance'
             }
         };
 
         // 数据流类型映射
         this.resourceTypeMap = {
-            'ground': '地接方',
-            'hotel': '酒店方',
-            'vehicle': '车辆方',
-            'guide': '导游方',
-            'restaurant': '餐饮方'
+            'supplier': '供应方',
+            'warehouse': '仓储方',
+            'logistics': '物流方',
+            'service': '客服方',
+            'finance': '财务方'
         };
 
         this.init();

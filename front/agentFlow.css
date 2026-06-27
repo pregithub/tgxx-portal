@@ -276,7 +276,7 @@ body::before {
     font-size: 14px;
 }
 
-/* 资源节点 - 地接方、酒店、车辆、导游、餐饮 */
+/* 资源节点 - 供应、仓储、物流、客服、财务 */
 .network-node.resource {
     background: linear-gradient(135deg, rgba(0, 180, 216, 0.3) 0%, rgba(144, 64, 255, 0.3) 100%);
     border: 2px solid rgba(0, 180, 216, 0.5);

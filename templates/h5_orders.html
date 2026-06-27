@@ -87,17 +87,17 @@
         {% if orders %}
             {% for order in orders %}
             <div class="order-card">
-                <h3>{{ order.itinerary_name or '未知线路' }}</h3>
+                <h3>{{ order.product_name or order.itinerary_name or '未命名业务' }}</h3>
                 <div class="order-info">
-                    <span>{{ order.itinerary_days or 0 }}天</span>
-                    <span>出发日期: {{ order.start_date or '待定' }}</span>
+                    <span>交付周期: {{ order.delivery_cycle or order.itinerary_days or 0 }}天</span>
+                    <span>计划日期: {{ order.start_date or '待定' }}</span>
                 </div>
                 <div class="order-info">
                     <span>订单号: {{ order.order_id }}</span>
                     <span class="status {% if order.order_status == 1 %}pending{% elif order.order_status == 2 %}confirmed{% else %}completed{% endif %}">
                         {% if order.order_status == 1 %}待确认
                         {% elif order.order_status == 2 %}待资源确认
-                        {% elif order.order_status == 3 %}待出行
+                        {% elif order.order_status == 3 %}执行中
                         {% elif order.order_status == 4 %}已完成
                         {% else %}未知{% endif %}
                     </span>

@@ -65,7 +65,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }, observerOptions);
 
     // 为卡片添加动画类
-    document.querySelectorAll('.vision-card, .feature-item, .team-card, .advantage-item').forEach(el => {
+    document.querySelectorAll('.vision-card, .matrix-card, .loop-step, .loop-values > div, .fde-pillar, .team-card, .advantage-item').forEach(el => {
         el.style.opacity = '0';
         el.style.transform = 'translateY(30px)';
         el.style.transition = 'all 0.6s ease';

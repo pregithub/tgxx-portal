@@ -1,0 +1,20 @@
+[Unit]
+Description=Tiangong Intelligent Order H5 Portal
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=__DEPLOY_USER__
+Group=__DEPLOY_GROUP__
+WorkingDirectory=__DEPLOY_PATH__
+EnvironmentFile=-__DEPLOY_PATH__/.env
+Environment=PYTHONUNBUFFERED=1
+ExecStart=__DEPLOY_PATH__/.venv/bin/gunicorn --workers 1 --threads 8 --timeout 120 --bind 127.0.0.1:8080 app:app
+Restart=always
+RestartSec=5
+PrivateTmp=true
+NoNewPrivileges=true
+
+[Install]
+WantedBy=multi-user.target

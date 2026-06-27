@@ -17,7 +17,7 @@ app = Flask(__name__,
             template_folder='templates',
             static_folder='front',
             static_url_path='/front')
-app.secret_key = "h5-secret-key-change-in-production"
+app.secret_key = os.environ.get("APP_SECRET_KEY", "h5-secret-key-change-in-production")
 sock = Sock(app)
 
 # Get the directory where app.py is located
@@ -31,20 +31,17 @@ connected_clients = []
 
 SIMULATION_CONFIG = {
     "dispatchTargets": [
-        { "role": "订单机器人", "content": "创建新订单: 云南5日游, 3人" },
-        { "role": "酒店机器人", "content": "搜索酒店: 大理, 4晚, 3人" },
-        { "role": "车辆机器人", "content": "搜索车辆: 7座, 5天" },
-        { "role": "导游机器人", "content": "搜索导游: 云南, 5天" },
-        { "role": "餐饮机器人", "content": "搜索餐厅: 大理+丽江, 5天" },
-        { "role": "景区机器人", "content": "搜索景区: 玉龙雪山, 丽江古城" },
-        { "role": "计调机器人", "content": "生成行程计划" },
-        { "role": "财务机器人", "content": "计算费用明细" }
+        { "role": "供应方", "content": "匹配产品与采购资源" },
+        { "role": "仓储方", "content": "检查库存并创建预留计划" },
+        { "role": "物流方", "content": "生成交付与物流方案" },
+        { "role": "客服方", "content": "生成客户沟通与进度通知" },
+        { "role": "财务方", "content": "核算成本、利润与结算信息" }
     ],
     "aiReplies": [
-        "好的！我来为您规划这次云南之旅。根据您的需求，我需要先了解一些信息...",
-        "根据您的要求，我为您推荐以下行程方案：\n\n📍 目的地：云南大理+丽江\n⏰ 时长：5天4晚\n👨‍👩‍👧 人数：3人\n💰 预算：约9000元（人均3000）",
-        "我已经为您匹配了以下资源：\n\n🏨 酒店：大理古城客栈\n🚗 车辆：7座商务车\n🎤 导游：王师傅（资深导游）",
-        "好的，您的订单已提交成功！我们会尽快为您确认资源，稍后会有专人与您电话联系确认细节。"
+        "好的！我会根据业务目标拆解需求，并协调相关资源与执行节点。",
+        "业务方案已生成：\n\n📦 产品：新品 A\n📊 数量：500 件\n⏱️ 交付周期：7 天\n💰 预算：待确认",
+        "资源匹配已完成：\n\n🏭 供应：已确认\n📦 库存：可用\n🚚 物流：方案已生成",
+        "订单已进入执行流程，系统将持续跟踪任务状态、风险与交付进度。"
     ]
 }
 
@@ -56,7 +53,7 @@ def run_simulation_thread(ws):
         # 1. Send USER_MESSAGE
         ws.send(json.dumps({
             "type": "USER_MESSAGE",
-            "content": "我想去云南旅游，3个人，5天4晚",
+            "content": "需要处理一笔新品订单，数量500件，计划7天内完成交付",
             "timestamp": format_time()
         }))
         time.sleep(1.0)
